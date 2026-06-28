@@ -25,41 +25,54 @@ const highlights = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
-      <section className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-5 py-28 sm:px-8">
-        <div className="absolute left-1/2 top-24 -z-10 size-72 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div className="absolute bottom-20 right-10 -z-10 size-80 rounded-full bg-violet-500/20 blur-3xl" />
+    <main className="min-h-screen overflow-hidden text-white">
+      <section className="page-shell flex min-h-screen flex-col justify-center py-32 sm:py-36">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+          <div className="max-w-3xl">
+            <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100">
+              <span className="mr-2 size-2 self-center rounded-full bg-cyan-300 shadow-[0_0_14px_#67e8f9]" />
+              Portfolio / Learning Log
+            </p>
 
-        <div className="max-w-3xl">
-          <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100">
-            Portfolio / Learning Log
-          </p>
+            <h1 className="text-5xl font-black leading-[1.06] tracking-[-0.045em] text-white sm:text-7xl lg:text-7xl xl:text-8xl">
+              作って、学んで、
+              <span className="gradient-text">更新し続ける。</span>
+            </h1>
 
-          <h1 className="text-5xl font-black tracking-tight text-white sm:text-7xl lg:text-8xl">
-            作って、学んで、更新し続けるポートフォリオ。
-          </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+              Cold Door は C++、AtCoder、Unity、C#、Web 開発の成果と学習ログをまとめるサイトです。制作物へすぐ移動できる導線と、読みやすいモダンなレイアウトに整えています。
+            </p>
 
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-            Cold Door は C++、AtCoder、Unity、C#、Web 開発の成果と学習ログをまとめるサイトです。制作物へすぐ移動できる導線と、読みやすいモダンなレイアウトに整えています。
-          </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/projects"
+                className="rounded-full bg-cyan-300 px-6 py-3 font-semibold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:-translate-y-0.5 hover:bg-cyan-200"
+              >
+                制作物を見る
+              </Link>
+              <Link
+                href="/about"
+                className="rounded-full border border-white/15 px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+              >
+                プロフィールへ
+              </Link>
+            </div>
+          </div>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/projects"
-              className="rounded-full bg-cyan-300 px-6 py-3 font-semibold text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:-translate-y-0.5 hover:bg-cyan-200"
-            >
-              制作物を見る
-            </Link>
-            <Link
-              href="/about"
-              className="rounded-full border border-white/15 px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/10"
-            >
-              プロフィールへ
-            </Link>
+          <div className="hero-geometry mx-auto hidden lg:block" aria-hidden="true">
+            <div className="geometry-halo" />
+            <div className="geometry-orbit geometry-orbit-outer" />
+            <div className="geometry-orbit geometry-orbit-inner" />
+            <div className="geometry-core">
+              <div className="geometry-core-face" />
+            </div>
+            <span className="geometry-dot geometry-dot-one" />
+            <span className="geometry-dot geometry-dot-two" />
+            <span className="geometry-dot geometry-dot-three" />
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-3">
+        <div className="mt-14 flex flex-wrap gap-3 border-t border-white/10 pt-7">
           {skills.map((skill) => (
             <span key={skill} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
               {skill}
@@ -67,13 +80,14 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           {highlights.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-slate-950/30 transition hover:-translate-y-1 hover:border-cyan-200/40 hover:bg-white/[0.07]"
+              className="glass-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-200/40"
             >
+              <span className="absolute right-5 top-4 text-5xl font-black text-white/[0.035]">0{highlights.indexOf(item) + 1}</span>
               <div className={`mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r ${item.accent}`} />
               <h2 className="text-2xl font-bold">{item.title}</h2>
               <p className="mt-4 leading-7 text-slate-300">{item.description}</p>

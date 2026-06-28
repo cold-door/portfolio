@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-slate-950 px-5 py-28 text-white sm:px-8">
-      <section className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+    <main className="min-h-screen py-32 text-white sm:py-36">
+      <section className="page-shell grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">About</p>
           <h1 className="mt-4 text-4xl font-black sm:text-6xl">Cold Door</h1>
@@ -20,7 +20,9 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-cyan-950/20">
+        <div className="glass-card relative overflow-hidden p-8 lg:p-10">
+          <div className="absolute -right-16 -top-16 size-44 rounded-full border border-cyan-300/20" aria-hidden="true" />
+          <div className="absolute -right-8 -top-8 size-28 rounded-full border border-violet-300/20" aria-hidden="true" />
           <h2 className="text-2xl font-bold">Focus</h2>
           <ul className="mt-6 space-y-4 text-slate-300">
             <li>・競技プログラミングで問題解決力を磨く</li>

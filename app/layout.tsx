@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "../components/Header";
 
 export const metadata: Metadata = {
-  title: "Cold Door",
-  description: "Portfolio and learning log",
+  title: "Cold Door | Portfolio",
+  description: "制作物と学習ログをまとめるモダンなポートフォリオサイト",
 };
 
 export default function RootLayout({

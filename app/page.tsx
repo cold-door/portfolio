@@ -34,9 +34,9 @@ export default function Home() {
               Portfolio / Learning Log
             </p>
 
-            <h1 className="text-5xl font-black leading-[1.06] tracking-[-0.045em] text-white sm:text-7xl lg:text-7xl xl:text-8xl">
+            <h1 className="text-5xl font-black leading-[1.06] tracking-[-0.045em] text-white sm:text-6xl lg:text-6xl xl:text-7xl">
               作って、学んで、
-              <span className="gradient-text">更新し続ける。</span>
+              <span className="gradient-text block">更新し続ける。</span>
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
@@ -59,7 +59,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-geometry mx-auto hidden lg:block" aria-hidden="true">
+          <div className="hero-geometry mx-auto" aria-hidden="true">
             <div className="geometry-halo" />
             <div className="geometry-orbit geometry-orbit-outer" />
             <div className="geometry-orbit geometry-orbit-inner" />

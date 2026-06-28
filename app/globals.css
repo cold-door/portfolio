@@ -39,7 +39,7 @@ a {
 }
 
 .page-shell {
-  width: min(100% - 2rem, 80rem);
+  width: min(calc(100% - 2rem), 80rem);
   margin-inline: auto;
 }
 
@@ -128,6 +128,7 @@ a {
 
 .hero-geometry {
   position: relative;
+  display: none;
   width: min(100%, 27rem);
   aspect-ratio: 1;
   perspective: 900px;
@@ -216,13 +217,19 @@ a {
 
 @media (min-width: 768px) {
   .page-shell {
-    width: min(100% - 5rem, 80rem);
+    width: min(calc(100% - 5rem), 80rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-geometry {
+    display: block;
   }
 }
 
 @media (min-width: 1440px) {
   .page-shell {
-    width: min(100% - 10rem, 80rem);
+    width: min(calc(100% - 10rem), 80rem);
   }
 }
 

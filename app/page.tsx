@@ -13,25 +13,25 @@ const highlights = [
     title: "Learning Logs",
     description: "学習内容や詰まったことを、後から振り返れる形で蓄積します。",
     href: "/logs",
-    accent: "from-fuchsia-400 to-violet-500",
+    accent: "from-blue-300 to-indigo-500",
   },
   {
     title: "About",
     description: "興味分野、現在の学習テーマ、ポートフォリオの方向性を紹介します。",
     href: "/about",
-    accent: "from-emerald-400 to-teal-500",
+    accent: "from-cyan-100 to-sky-400",
   },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden text-white">
-      <section className="page-shell flex min-h-screen flex-col justify-center py-32 sm:py-36">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+      <section className="page-shell pb-32 pt-28 sm:pb-40 sm:pt-32">
+        <div className="grid min-h-[86vh] items-center gap-16 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
           <div className="max-w-3xl">
             <p className="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100">
               <span className="mr-2 size-2 self-center rounded-full bg-cyan-300 shadow-[0_0_14px_#67e8f9]" />
-              Portfolio / Learning Log
+              FROZEN DOOR / PORTFOLIO
             </p>
 
             <h1 className="text-5xl font-black leading-[1.06] tracking-[-0.045em] text-white sm:text-6xl lg:text-6xl xl:text-7xl">
@@ -40,7 +40,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-              Cold Door は C++、AtCoder、Unity、C#、Web 開発の成果と学習ログをまとめるサイトです。制作物へすぐ移動できる導線と、読みやすいモダンなレイアウトに整えています。
+              Frozen Door は、コードとアイデアを静かに結晶化していくポートフォリオです。C++、Unity、Web 開発の制作物と、そこへ至る学びの軌跡を記録しています。
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -65,14 +65,20 @@ export default function Home() {
             <div className="geometry-orbit geometry-orbit-inner" />
             <div className="geometry-core">
               <div className="geometry-core-face" />
+              <div className="geometry-crystal">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <span key={index} style={{ "--spoke": index } as React.CSSProperties} />
+                ))}
+              </div>
             </div>
+            <div className="geometry-scanline" />
             <span className="geometry-dot geometry-dot-one" />
             <span className="geometry-dot geometry-dot-two" />
             <span className="geometry-dot geometry-dot-three" />
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-3 border-t border-white/10 pt-7">
+        <div className="mt-10 flex flex-wrap gap-3 border-t border-cyan-100/10 pt-10 sm:mt-16 sm:pt-12">
           {skills.map((skill) => (
             <span key={skill} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
               {skill}
@@ -80,7 +86,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 pb-8 md:grid-cols-3 sm:mt-24">
           {highlights.map((item) => (
             <Link
               key={item.href}

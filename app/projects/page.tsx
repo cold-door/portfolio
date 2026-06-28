@@ -20,7 +20,7 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen py-32 text-white sm:py-36">
+    <main className="min-h-screen py-36 text-white sm:py-48">
       <section className="page-shell">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
           </Link>
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 pb-24 lg:grid-cols-3">
           {projects.map((project) => (
             <article key={project.title} className="glass-card group relative min-h-64 overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-200/40">
               <span className="absolute -right-8 -top-8 size-28 rounded-full border border-white/10 transition duration-500 group-hover:scale-125 group-hover:border-cyan-300/30" />

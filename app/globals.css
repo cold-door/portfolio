@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
+  --background: #010712;
   --foreground: #f8fafc;
 }
 
@@ -44,16 +44,16 @@ a {
 }
 
 .glass-card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(186, 230, 253, 0.13);
   border-radius: 1.75rem;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
-  box-shadow: 0 30px 80px rgba(2, 6, 23, 0.28);
+  background: linear-gradient(145deg, rgba(224, 242, 254, 0.08), rgba(30, 64, 175, 0.025));
+  box-shadow: 0 30px 80px rgba(1, 7, 18, 0.38), inset 0 1px rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(18px);
 }
 
 .gradient-text {
   color: transparent;
-  background: linear-gradient(105deg, #a5f3fc 5%, #60a5fa 48%, #c4b5fd 92%);
+  background: linear-gradient(105deg, #ecfeff 0%, #67e8f9 35%, #60a5fa 70%, #bfdbfe 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -64,10 +64,10 @@ a {
   z-index: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 8%, rgba(8, 145, 178, 0.19), transparent 31rem),
-    radial-gradient(circle at 86% 22%, rgba(109, 40, 217, 0.18), transparent 34rem),
-    radial-gradient(circle at 50% 100%, rgba(30, 64, 175, 0.18), transparent 42rem),
-    linear-gradient(145deg, #020617 0%, #071225 48%, #08051b 100%);
+    radial-gradient(circle at 10% 5%, rgba(14, 165, 233, 0.2), transparent 32rem),
+    radial-gradient(circle at 88% 26%, rgba(37, 99, 235, 0.17), transparent 36rem),
+    radial-gradient(circle at 45% 100%, rgba(8, 145, 178, 0.13), transparent 46rem),
+    linear-gradient(150deg, #010712 0%, #04152b 46%, #06112a 72%, #020617 100%);
 }
 
 .ambient-grid {
@@ -79,6 +79,7 @@ a {
     linear-gradient(90deg, rgba(148, 163, 184, 0.13) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, black, transparent 82%);
+  animation: grid-drift 24s linear infinite;
 }
 
 .ambient-orb,
@@ -99,17 +100,18 @@ a {
   background: rgba(6, 182, 212, 0.13);
 }
 
-.ambient-orb-violet {
+.ambient-orb-blue {
   right: -10rem;
   bottom: 5%;
   width: 30rem;
   height: 30rem;
-  background: rgba(124, 58, 237, 0.12);
+  background: rgba(37, 99, 235, 0.14);
 }
 
 .ambient-ring {
   border: 1px solid rgba(165, 243, 252, 0.09);
   transform: rotate(-22deg);
+  animation: ambient-orbit 28s ease-in-out infinite alternate;
 }
 
 .ambient-ring-one {
@@ -124,12 +126,39 @@ a {
   left: 5%;
   width: 16rem;
   height: 16rem;
+  animation-delay: -11s;
 }
+
+.ambient-streak {
+  position: absolute;
+  top: -30%;
+  width: 1px;
+  height: 14rem;
+  opacity: 0;
+  background: linear-gradient(to bottom, transparent, rgba(186, 230, 253, 0.45), transparent);
+  transform: rotate(28deg);
+  animation: ice-streak 11s linear infinite;
+}
+
+.ambient-streak-one { left: 18%; animation-delay: -2s; }
+.ambient-streak-two { left: 57%; height: 9rem; animation-delay: -7s; }
+.ambient-streak-three { left: 82%; height: 18rem; animation-delay: -4s; }
+
+.ambient-crystal {
+  position: absolute;
+  color: rgba(207, 250, 254, 0.3);
+  text-shadow: 0 0 16px rgba(103, 232, 249, 0.5);
+  animation: crystal-drift 14s ease-in-out infinite;
+}
+
+.ambient-crystal-one { left: 8%; top: 34%; font-size: 1.2rem; }
+.ambient-crystal-two { right: 9%; top: 58%; font-size: 1.8rem; animation-delay: -5s; }
+.ambient-crystal-three { bottom: 10%; left: 32%; font-size: 0.8rem; animation-delay: -9s; }
 
 .hero-geometry {
   position: relative;
   display: none;
-  width: min(100%, 27rem);
+  width: min(100%, 30rem);
   aspect-ratio: 1;
   perspective: 900px;
 }
@@ -138,7 +167,7 @@ a {
   position: absolute;
   inset: 16%;
   border-radius: 50%;
-  background: conic-gradient(from 120deg, rgba(34, 211, 238, 0.4), rgba(59, 130, 246, 0.05), rgba(167, 139, 250, 0.38), rgba(34, 211, 238, 0.4));
+  background: conic-gradient(from 120deg, rgba(103, 232, 249, 0.42), rgba(59, 130, 246, 0.05), rgba(147, 197, 253, 0.36), rgba(34, 211, 238, 0.42));
   filter: blur(34px);
   animation: breathe 6s ease-in-out infinite;
 }
@@ -158,7 +187,7 @@ a {
 
 .geometry-orbit-inner {
   inset: 21%;
-  border-color: rgba(196, 181, 253, 0.3);
+  border-color: rgba(147, 197, 253, 0.34);
   transform: rotateY(68deg) rotateZ(35deg);
   animation: orbit-reverse 12s linear infinite;
 }
@@ -169,19 +198,65 @@ a {
   display: grid;
   place-items: center;
   transform: rotate(45deg);
-  border: 1px solid rgba(165, 243, 252, 0.55);
-  border-radius: 28%;
-  background: linear-gradient(145deg, rgba(103, 232, 249, 0.17), rgba(139, 92, 246, 0.12));
-  box-shadow: 0 0 50px rgba(34, 211, 238, 0.18), inset 0 0 30px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(207, 250, 254, 0.65);
+  border-radius: 24%;
+  background: linear-gradient(145deg, rgba(224, 242, 254, 0.2), rgba(37, 99, 235, 0.1));
+  box-shadow: 0 0 64px rgba(34, 211, 238, 0.24), inset 0 0 34px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   animation: float 7s ease-in-out infinite;
 }
 
 .geometry-core-face {
+  position: absolute;
+  inset: 25%;
   width: 48%;
   height: 48%;
-  border: 1px solid rgba(196, 181, 253, 0.5);
+  border: 1px solid rgba(186, 230, 253, 0.5);
   border-radius: 35%;
+  animation: core-pulse 4s ease-in-out infinite;
+}
+
+.geometry-crystal {
+  position: absolute;
+  inset: 15%;
+  transform: rotate(-45deg);
+  animation: crystal-spin 18s linear infinite;
+}
+
+.geometry-crystal span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48%;
+  height: 1px;
+  transform: rotate(calc(var(--spoke) * 60deg));
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(236, 254, 255, 0.95), rgba(103, 232, 249, 0.1));
+  box-shadow: 0 0 8px rgba(165, 243, 252, 0.6);
+}
+
+.geometry-crystal span::after {
+  content: "";
+  position: absolute;
+  right: 28%;
+  top: -0.22rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1px solid rgba(207, 250, 254, 0.8);
+  border-top: 1px solid rgba(207, 250, 254, 0.8);
+  transform: rotate(45deg);
+}
+
+.geometry-scanline {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 15%;
+  height: 1px;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, #cffafe, transparent);
+  box-shadow: 0 0 12px #22d3ee;
+  animation: scan 5s ease-in-out infinite;
 }
 
 .geometry-dot {
@@ -191,11 +266,53 @@ a {
   border-radius: 50%;
   background: #a5f3fc;
   box-shadow: 0 0 18px #22d3ee;
+  animation: dot-drift 5s ease-in-out infinite;
 }
 
 .geometry-dot-one { left: 9%; top: 44%; }
-.geometry-dot-two { right: 15%; top: 20%; background: #c4b5fd; box-shadow: 0 0 18px #8b5cf6; }
-.geometry-dot-three { bottom: 13%; right: 27%; width: 0.4rem; height: 0.4rem; }
+.geometry-dot-two { right: 15%; top: 20%; background: #bfdbfe; box-shadow: 0 0 18px #60a5fa; animation-delay: -1.5s; }
+.geometry-dot-three { bottom: 13%; right: 27%; width: 0.4rem; height: 0.4rem; animation-delay: -3s; }
+
+@keyframes grid-drift {
+  to { background-position: 72px 72px; }
+}
+
+@keyframes ambient-orbit {
+  to { transform: rotate(8deg) translate3d(-2rem, 1rem, 0); }
+}
+
+@keyframes ice-streak {
+  0% { opacity: 0; translate: 0 -10vh; }
+  20% { opacity: 0.65; }
+  70% { opacity: 0.15; }
+  100% { opacity: 0; translate: 30vw 150vh; }
+}
+
+@keyframes crystal-drift {
+  0%, 100% { transform: rotate(0deg) translateY(-0.5rem); opacity: 0.25; }
+  50% { transform: rotate(180deg) translateY(1rem); opacity: 0.65; }
+}
+
+@keyframes crystal-spin {
+  to { transform: rotate(315deg); }
+}
+
+@keyframes core-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes scan {
+  0%, 15% { top: 18%; opacity: 0; }
+  35% { opacity: 0.9; }
+  75% { opacity: 0.6; }
+  90%, 100% { top: 82%; opacity: 0; }
+}
+
+@keyframes dot-drift {
+  0%, 100% { translate: 0 0; scale: 0.8; opacity: 0.55; }
+  50% { translate: 0.8rem -1rem; scale: 1.25; opacity: 1; }
+}
 
 @keyframes float {
   0%, 100% { translate: 0 -4px; }
@@ -234,9 +351,17 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ambient-grid,
+  .ambient-ring,
+  .ambient-streak,
+  .ambient-crystal,
   .geometry-halo,
   .geometry-orbit,
-  .geometry-core {
+  .geometry-core,
+  .geometry-core-face,
+  .geometry-crystal,
+  .geometry-scanline,
+  .geometry-dot {
     animation: none;
   }
 }

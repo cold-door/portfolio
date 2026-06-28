@@ -8,7 +8,7 @@ const logs = [
 
 export default function LogsPage() {
   return (
-    <main className="min-h-screen py-32 text-white sm:py-36">
+    <main className="min-h-screen py-36 text-white sm:py-48">
       <section className="page-shell">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Journal</p>
         <h1 className="mt-4 text-4xl font-black sm:text-6xl">Learning Logs</h1>
@@ -16,7 +16,7 @@ export default function LogsPage() {
           勉強したこと、詰まったこと、理解したことを短く記録し、次の制作につなげます。
         </p>
 
-        <div className="mt-12 grid gap-4">
+        <div className="mt-20 grid gap-6">
           {logs.map((log, index) => (
             <article key={log} className="glass-card group flex gap-5 p-6 transition duration-300 hover:translate-x-1 hover:border-cyan-200/30">
               <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-cyan-200 to-blue-500 font-black text-slate-950 shadow-lg shadow-cyan-500/20">
